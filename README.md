@@ -1,6 +1,6 @@
 ## About the OpenReblock Project
 
-OpenReblock is an interactive mapping tool to facilitate community-driven planning in slums. The tool relies on data from [Open Street Maps](https://www.openstreetmap.org) and interdisciplinary urban science techniques to diagnose infrastructure deficits and propose new street networks to enhance spatial accessibility and provide a foundation for further improvements including street enumerations, basic services like clean water and sanitation, and increased tenure security.
+OpenReblock is an interactive mapping tool to facilitate community-driven planning in slums. The tool relies on data from [Open Street Maps](https://www.openstreetmap.org) and interdisciplinary urban science techniques to diagnose infrastructure deficits and propose new street networks to enhance spatial accessibility and lay the groundwork for further improvements like street enumerations, clean water and sanitation infrastructure, and increased tenure security.
 
 ### Why make an urban planning tool? 
 The world is urbanizing quickly with nearly 4 billion people presently living in urban areas, about 1 billion of them in slums without access to plumbing, electricity, or basic city services. Rapid urbanization creates a need to rethink how urban planning happens by putting open source tools in the hands of communities to speed up the process and democratize the resources needed to inform better solutions. The current challenge -- which we are hoping you may be able to help with -- is to help develop this urban planning toolkit.
