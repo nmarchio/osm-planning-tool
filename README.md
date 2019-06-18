@@ -14,6 +14,9 @@ Open a pull request! Below we’ve developed a set of modules that focus on disc
 ## Feature request modules
 
 
+## Learning resources
+
+
 ## Contributing
 
 Please read [CONTRIBUTING.md](.) for details on our code of conduct, and the process for submitting pull requests.
