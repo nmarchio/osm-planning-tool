@@ -23,7 +23,11 @@ Please read [CONTRIBUTING.md](.) for details on our code of conduct, and the pro
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](.) file for details.
+This project is licensed under the terms of the GNU General Public License as published by the Free Software Foundation, version 3. Contact nmarchio@uchicago.edu for more questions - see the [LICENSE.md](.) file for details.
+
+## Copyright
+
+©2019 University of Chicago
 
 ## Acknowledgements
 
@@ -32,6 +36,6 @@ Smruti Jukur, Menare Royal Mabakeng, Yohnny Raich, Killion Nyambuga, Richard Boc
 
 This research project builds on the scientific work of Christa Brelsford, Taylor Martin, Joe Hand, and Luís Bettencourt, researchers from the Santa Fe Institute cities group and Sam Houston State University and Slum Dweller Federations. More details on the scientific methods are available in the papers: [The Topology of Cities](https://advances.sciencemag.org/content/4/8/eaar4644/tab-pdf) and [Optimal Re-blocking as a Practical Tool for Neighborhood Development](https://journals.sagepub.com/doi/abs/10.1177/2399808317712715) and the original [OpenReblock project site](https://openreblock.org/).
 
-©2019 University of Chicago
 
-OpenReblock is licensed under the terms of the GNU General Public License as published by the Free Software Foundation, version 3. Contact nmarchio@uchicago.edu for more questions.
+
+
