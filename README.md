@@ -25,7 +25,7 @@ Please read [CONTRIBUTING.md](https://github.com/nmarchio/osm-planning-tool/blob
 
 ## License
 
-This project is licensed under the terms of the GNU General Public License as published by the Free Software Foundation, version 3. Contact nmarchio@uchicago.edu for more questions - see the [LICENSE.md](https://github.com/nmarchio/osm-planning-tool/blob/master/LICENSE.md) file for details.
+This project is licensed under the terms of the GNU General Public License as published by the Free Software Foundation, version 3. See the [LICENSE.md](https://github.com/nmarchio/osm-planning-tool/blob/master/LICENSE.md) file for details.
 
 ## Copyright
 
