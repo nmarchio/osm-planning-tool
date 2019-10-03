@@ -1,4 +1,5 @@
 
+
 // Mobile default width
 var mobile = document.documentElement.clientWidth <= 700;
                        
@@ -165,7 +166,7 @@ var description = document.getElementById('location-description');
 var locations = [
 {"id": 1,
   "title": "Why street access matters",
-  "description": "Having a street outside one's home is something often taken for granted. Yet for over a billion people in over a million neighborhoods accessing nearby street networks is a daily challenge and can indicate deficits in other types of infrastructure which rely on streets, such as light sources, fire hydrants, power lines, and pipes buried underneath that provide clean water and sanitation.",
+  "description": "Having a street outside one's home is something often taken for granted. Yet for over a billion people in over a million neighborhoods accessing nearby street networks is a daily challenge and can indicate deficits in other types of infrastructure which rely on streets, such as light sources, fire hydrants, power lines, and pipes that provide clean water and sanitation.",
   "camera": {
     center: [12.794268, -1.316134],
     bearing: 0,
@@ -175,7 +176,7 @@ var locations = [
 },
 {"id": 2,
   "title": "How the map can help",
-  "description": "The Million Neighborhoods map attempts to identify these neighborhoods and show how democratizing this data can facilitate community-driven planning to resolve street access deficiencies from the bottom-up. Since the map relies on OpenStreetMap some neighborhoods may be less well documented than others so the accuracy is only as good as what’s currently available.",
+  "description": "The Million Neighborhoods map attempts to identify these neighborhoods and show how democratizing data at scale provide resources for communities to develop street plans that resolve access deficiencies from the bottom-up. Since the map relies on OpenStreetMap some neighborhoods may be less well documented than others so the accuracy is only as good as what’s currently available.",
   "camera": {
     center: [12.794268, -1.316134],
     bearing: 0,
@@ -232,7 +233,7 @@ var locations = [
 }, {
   "id": 7,
   "title": "What the map shows",
-  "description": "This map answers the basic question: How hard is it to get from the buildings in a block to the streets around it? The different colors distinguish areas with high to low street access. Red areas contain buildings with more limited street access and blue areas contain buildings with higher levels of access. The data that underlies the map comes from OpenStreetMap, an open source GIS database crowdsourced from around the world.",
+  "description": "This map answers the basic question: How hard is it to get from the buildings in a block to the streets around it? In this map red areas have buildings with more limited street access and blue areas have buildings with more street access. The data that underlies the map comes from OpenStreetMap, an open source GIS database crowdsourced from around the world.",
   "camera": {
     center: [12.794268, -1.316134],
     bearing: 0,
@@ -276,7 +277,4 @@ title.textContent = locations[locations.length - 1].title;
 description.textContent = locations[locations.length - 1].description;
 
 playback('play-interactive',0)
-
-
-/* why streets matter zoom along a famous
 
