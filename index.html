@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+  <meta charset=utf-8 />
+  <title>Million Neighborhoods</title>
+  <link href='https://www.mapbox.com/base/latest/base.css' rel='stylesheet'/>
+  <!--<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.4.0/mapbox-gl.css' rel='stylesheet' />-->
+  <link rel="canonical" href="https://mansueto-institute.github.io/" >
+  <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.4.0/mapbox-gl.js'></script>
+  <style>
+body { margin:0; padding:0; }
+#map { position:absolute; top:0; bottom:0; width:100%; }
+@font-face {
+  font-family: 'GothamLight';
+  src: url('extra/gotham/GothamLight.ttf') format('truetype'); 
+       font-weight: 300;
+       font-style: normal;
+}
+@font-face {
+  font-family: 'GothamMedium';
+  src: url('extra/gotham/GothamMedium.ttf') format('truetype'); 
+       font-weight: 400;
+       font-style: normal;
+}
+@font-face {
+  font-family: 'GothamBook';
+  src: url('extra/gotham/GothamBook.ttf')  format('truetype'); 
+       font-weight: 300;
+       font-style: normal;
+}
+@font-face {
+  font-family: 'GothamBold';
+  src: url('extra/gotham/GothamBold.ttf')  format('truetype'); 
+       font-weight: 700;
+       font-style: normal;
+}
+h2 { color:#222B30; }
+h3 { color:#222B30; }
+p { color:#222B30; }
+
+.popup {
+  display: inline-block;
+}
+.popup .popuptext {
+  visibility: hidden;
+  background-color: #555;
+  color: #fff;
+  position: absolute;
+  z-index: 1;
+}
+.popup .popuptext::after {
+  content: "";
+  position: absolute;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+.popup .show {
+  visibility: visible;
+}
+
+.map-overlay {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.8);
+  margin-right: 20px;
+  font-family: GothamMedium;
+  font-weight:normal;
+  font-size:11px;
+  overflow: auto;
+  border-radius: 3px;
+}
+.map-overlay-container-interactive {
+  position: absolute;
+  top: 2;
+  width: 254px;
+  height: 220px;
+  padding: 5px;
+  font-family: GothamMedium;
+  font-size: 13px;
+  line-height: 13px;
+  margin-top: 10px;
+  margin-left: 0px;
+  font-weight:normal;
+  overflow: auto;
+  border-radius: 3px;
+  background-color: #fff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+#legend {
+  padding: 9px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  line-height: 10px;
+  margin-bottom: 50px;
+}
+.legend-key {
+  display: inline-block;
+  border-radius: 20%;
+  width: 10px;
+  height: 10px;
+  margin-right: 5px;
+}
+.button {
+  font-family:GothamBold;
+  vertical-align: middle;
+  line-height:15px;
+  margin:2px;
+  padding: 8px 6px 0px 6px; 
+  cursor: pointer;
+  text-align: center;
+  display: inline-block;
+}
+.button.active,
+.button:hover {
+  background-color:#0571b0;
+}
+.sidebar {
+  width: 100%;
+  background-color:transparent;       
+}
+.icon-uofc {
+  background-image: url('extra/images/uchicago.svg');
+}
+</style>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5XWDNG9JPD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-5XWDNG9JPD');
+</script>
+</head>
+<body>
+<div id="sidebar" class="pin-topleft z1">
+    <div class="sidebar flex-scroll scroll-styled pad2">
+      <h2 class="hide-mobile" style="padding-bottom:0px;margin-bottom:0px;font-family:GothamBold;">Million Neighborhoods</h2>
+      <h2 class="show-mobile" style="padding-bottom:0px;margin-bottom:0px;font-family:GothamBold;">Million<br />Neighborhoods</h2>
+
+      <div id="play-interactive" class="button fill-red dark hide-mobile" style="margin-top:0px;">
+        <span> Play interactive explainer</span>
+      </div>
+
+      <div id='popup-interactive' class='map-overlay-container-interactive'> 
+        <p id='location-title' style="font-family:GothamBold; font-size:18px; margin-top:5px; margin-bottom:5px;"></p>
+        <p id='location-description' style="font-family:GothamMedium;line-height:15px;font-size:12px;"></p>
+      </div>
+
+      </p>
+      <div class="hide-mobile space-bottom0" style="padding-top:215px;"></div>
+      <div class="projects">
+        <h3 class="space-bottom0" style="padding-top:0px;margin-bottom:0px;margin:3px;font-family:GothamBold;">Explore a city</h3>
+        <div id="sierra-leone" class="button fill-navy-dark dark" style="margin-top:2px;">
+          <span> Freetown, Sierra Leone</span>
+        </div>
+          <br />
+        <div id="liberia" class="button fill-navy-dark dark" style="margin-top:2px;">
+          <span> Monrovia, Liberia</span>
+        </div>
+          <br />
+        <div id="south-africa" class="button fill-navy-dark dark" style="margin-top:2px;">
+          <span> Cape Town, South Africa</span>
+        </div>
+          <br />
+        <div id="nigeria" class="button fill-navy-dark dark" style="margin-top:2px;">
+          <span> Lagos, Nigeria</span>
+        </div>
+          <br />
+        <div id="kenya" class="button fill-navy-dark dark" style="margin-top:2px;">
+          <span> Nairobi, Kenya</span>
+        </div>
+          <br />
+        <div id="zimbabwe" class="button fill-navy-dark dark" style="margin-top:2px;">
+          <span> Harare, Zimbabwe</span>
+        </div>
+          <br />
+        <div id="tanzania" class="button fill-navy-dark dark" style="margin-top:2px;">
+          <span> Dar-es-Salaam, Tanzania</span>
+        </div>
+          <br />
+        <div id="ghana" class="button fill-navy-dark dark" style="margin-top:2px;">
+          <span> Accra, Ghana</span>
+        </div>
+          <br />
+        <div id="haiti" class="button fill-navy-dark dark" style="margin-top:2px;">
+          <span> Port-au-Prince, Haiti</span>
+        </div>
+          <br />
+          <!--
+        <div id="brasil" class="button fill-navy-dark dark" style="margin-top:2px;">
+          <span> Rio de Janeiro, Brasil</span>
+        </div>
+          <br />
+        <div id="philippines" class="button fill-navy-dark dark" style="margin-top:2px;">
+          <span> Manila, Philippines</span>
+        </div>
+          <br />
+        <div id="india" class="button fill-navy-dark dark" style="margin-top:2px;">
+          <span> Mumbai, India</span>
+        </div>
+          <br />
+        <div id="pakistan" class="button fill-navy-dark dark" style="margin-top:2px;">
+          <span> Karachi, Pakistan</span>
+        </div>
+          <br />
+          -->
+        <div id="nepal" class="button fill-navy-dark dark" style="margin-top:2px;">
+          <span> Kathmandu, Nepal</span>
+        </div>
+        <br />
+      </div>
+      <div class ='pin-bottomleft hide-mobile' style="margin-left:20px;margin-bottom:3px;font-size:13px;" >
+        <p style="display:inline;font-family:GothamMedium;line-height:9px;margin-bottom:10px;">Find more at </p><a target='_blank' href='https://miurban.uchicago.edu'><p style="display:inline;font-family:GothamMedium;line-height:9px;margin-bottom:10px;">miurban.uchicago.edu</p></a>
+      </div> 
+
+    </div>
+  </div>
+
+  <div id="map"></div>
+  <div class ='pin-bottomright hide-mobile' >
+    <img style="margin-top:11px; margin-bottom:7px; margin-right:335px;" src="extra/images/uchicago.svg" width="180px" />
+  </div>  
+  <div class ='pin-bottomright hide-mobile' >
+    <h3  style="margin-top:18px; margin-right:20px; font-family:GothamBold; line-height:13px;color:#800000;">Mansueto Institute for Urban Innovation</h3>
+    <h3  style="margin-top:9px; margin-bottom:3px; margin-right:20px; font-family:GothamBold; line-height:13px;color:#800000;">Research Computing Center</h3>
+  </div> 
+  <div class='map-overlay' id='legend'><h4 style="line-height:13px;margin:3px;font-family:GothamMedium;">Level of access<br />to street networks</h4></div>
+  <script src='index.js'></script>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="/__/firebase/6.6.2/firebase-app.js"></script>
+<!-- Add SDKs for Firebase products that you want to use https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="/__/firebase/init.js"></script>
+</body>
+</html>
